@@ -69,14 +69,14 @@ const vue_projects = ref([
     {
         id: 1,
         name: 'Vue Calculator',
-        img: '/images/14_vue_calculator.png',
+        img: '@/images/14_vue_calculator.png',
         link: 'https://ptk666.github.io/vue_calculator/',
         description: 'An elegantly designed calculator inspired by the iOS calculator app. Built using Vue.js, it offers a user-friendly interface for performing various arithmetic operations with precision.'
     },
     {
         id: 2,
         name: 'Vue Checkout Form',
-        img: '/images/15_vue_checkout_form.png',
+        img: '@/images/15_vue_checkout_form.png',
         link: 'https://ptk666.github.io/vue_checkout_form/',
         description: 'A Vue.js project focused on creating a seamless and user-friendly checkout form for online transactions. This project aims to enhance the user experience during the checkout process, making it easy and efficient.'
     }
