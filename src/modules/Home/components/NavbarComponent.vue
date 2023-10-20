@@ -4,8 +4,8 @@
             <span class="font-bold text-2xl">天</span>
         </div>
         <ul class="btn invisible md:visible col-span-2 flex gap-4 tracking-tight">
-            <li>Projects</li>
-            <li>Contact</li>
+            <li @click="scrollToProjects">Projects</li>
+            <li @click="scrollToContacts">Contact</li>
         </ul>
         <ul class="icons flex justify-end gap-2">
             <li><a href="https://github.com/ptk666" target="_blank"><img src="../../../assets/images/github.png" height="20" width="20"></a></li>
@@ -14,10 +14,17 @@
     </div>
 </template>
 
-<script>
-export default {
+<script setup>
 
-}
+    const scrollToProjects = () => {
+        document.body.scrollTop = 600;
+        document.documentElement.scrollTop = 600;
+    }
+
+    const scrollToContacts = () => {
+        document.body.scrollTop = 2500;
+        document.documentElement.scrollTop = 2500;
+    }
 </script>
 
 <style>

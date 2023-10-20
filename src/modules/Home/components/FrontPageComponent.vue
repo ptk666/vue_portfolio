@@ -7,7 +7,7 @@
                 xyz="down-100% ease-in-out duration-8 delay-1"
             >
                 <div class="overflow-hidden">
-                    <p class="text-2xl md:text-5xl lg:text-6xl uppercase font-bold tracking-tighter">Bruce James Dela Cruz</p>
+                    <p class="text-2xl text-center md:text-left md:text-5xl lg:text-6xl uppercase font-bold tracking-tighter">Bruce James Dela Cruz</p>
                 </div>
             </XyzTransition>
 
@@ -34,7 +34,9 @@
             appear
             xyz="down-100% ease-in-out duration-5 delay-10"
         >
-            <button @mouseover="foo" @mouseout="faz" class="border px-5 py-3 rounded-full border-slate-800 tracking-tight font-normal md:text-xl hover:bg-slate-800 hover:text-slate-50 transition-all ease-linear duration-200">Let's connect</button>
+            <a href="mailto:jamesdelacruz5899@gmail.com">
+                <button class="border px-5 py-3 rounded-full border-slate-800 tracking-tight font-normal md:text-xl hover:bg-slate-800 hover:text-slate-50 transition-all ease-linear duration-200">Let's connect</button>
+            </a>
         </XyzTransition>
     </div>
   </div>

@@ -1,37 +1,86 @@
 <template>
-  <div class="px-5 md:px-16 w-full">
-    <div class="flex justify-between">
-        <p>(repo showcase)</p>
-        <p>discover &darr;</p>
+    <div v-if="scroll_show">
+        <div class="px-5 md:px-16 w-full overflow-hidden">
+            <XyzTransition
+                :appear="scroll_show"
+                xyz="down-100% ease-in-out duration-8 delay-10"
+            >
+                <div v-if="scroll_show" class="flex justify-between">
+                    <p>(repo showcase)</p>
+                    <p>discover &darr;</p>
+                </div>
+            </XyzTransition>
+        </div>
+        <div class="my-5 w-full h-auto overflow-hidden">
+            <XyzTransition
+                appear
+                xyz="down-100% ease-in-out duration-8 delay-5"
+            >
+                <div
+                    class="bg-slate-800"
+                    v-if="scroll_show"
+                >
+                    <swiper-container
+                        :slides-per-view="3"
+                        :space-between="10"
+                        :centered-slides="true"
+                        :breakpoints="breakpoints"
+                    >
+                        <swiper-slide v-for="project in js_projects" class="text-slate-50" :key="project.id">
+                            <div class="card p-10 flex justify-center flex-col items-center text-center">
+                                <a :href="project.link" target="_blank">
+                                    <img class="rounded-lg shadow-xs shadow-slate-50" :src="project.img" alt="Project Image" width="300">
+                                </a>
+                                <p class="text-slate-50 text-2xl text-center mt-5">{{ project.name }}</p>
+                                <p class="text-center text-gray-400 mt-2">{{ project.description }}</p>
+                            </div>
+                        </swiper-slide>
+                    </swiper-container>
+                </div>
+            </XyzTransition>
+        </div>
+        <div class="px-5 md:px-16 overflow-hidden">
+            <XyzTransition
+                appear
+                xyz="fade-100% ease-in-out duration-8 delay-10"
+            >
+                <p v-show="scroll_show">(js projects)</p>
+            </XyzTransition>
+        </div>
     </div>
-  </div>
-  <div class="bg-slate-800 my-5 w-full h-auto overflow-hidden">
-    <swiper-container
-        :slides-per-view="1"
-        :space-between="10"
-        :centered-slides="true"
+    <div
+        v-else
+        class="h-96"
     >
-        <swiper-slide v-for="project in js_projects" class="text-slate-50" :key="project.id">
-            <div class="card p-10 flex justify-center flex-col items-center text-center">
-                <img class="rounded-lg shadow-xs shadow-slate-50" :src="project.img" alt="Project Image" width="300">
-                <p class="text-slate-50 text-2xl text-center mt-5">{{ project.name }}</p>
-                <p class="text-slate-50 text-center text-slate-400 mt-2">{{ project.description }}</p>
-            </div>
-        </swiper-slide>
-    </swiper-container>
-  </div>
-  <div class="px-5 md:px-16">
-    <p>(js projects)</p>
-  </div>
+        
+    </div>
 </template>
 
 <script setup>
 import { register } from 'swiper/element/bundle'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 register();
 
+const scroll_show = ref(false);
 
+const breakpoints = ref({
+    768: {
+        slidesPerView: 2
+    },
+    
+    425: {
+        slidesPerView: 1
+    },
+
+    375: {
+        slidesPerView: 1
+    },
+    
+    320: {
+        slidesPerView: 1
+    },
+});
 
 const js_projects = ref([
     {
@@ -127,8 +176,18 @@ const js_projects = ref([
     }
 ]);
 
+onMounted(() => {
+    window.addEventListener('scroll', () => {
+        const scrollHeight = window.scrollY;
+
+        if(scrollHeight >= 450) {
+            scroll_show.value = true;
+        }
+    });
+})
+
+
 </script>
 
-<style>
-
+<style scoped>
 </style>
