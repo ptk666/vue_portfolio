@@ -18,7 +18,7 @@
                         <swiper-slide v-for="project in vue_projects" :key="project.id">
                             <div class="card p-10 flex justify-center flex-col items-center text-center">
                                 <a :href="project.link" target="_blank">
-                                    <img class="rounded-lg shadow-xs shadow-slate-50" :src="require(project.img)" alt="Vue Project Image">
+                                    <img class="rounded-lg shadow-xs shadow-slate-50" :src="project.img" alt="Vue Project Image">
                                 </a>
                                 <p class="text-slate-50 text-2xl text-center mt-5">{{ project.name }}</p>
                                 <p class="text-center text-gray-400 mt-2">{{ project.description }}</p>
@@ -69,14 +69,18 @@ const vue_projects = ref([
     {
         id: 1,
         name: 'Vue Calculator',
-        img: '@/images/14_vue_calculator.png',
+        // img: require('/images/14_vue_calculator.png'),
+        // img: '/images/14_vue_calculator.png',
+        img: 'https://raw.githubusercontent.com/ptk666/vue_portfolio/master/public/images/14_vue_calculator.png',
         link: 'https://ptk666.github.io/vue_calculator/',
         description: 'An elegantly designed calculator inspired by the iOS calculator app. Built using Vue.js, it offers a user-friendly interface for performing various arithmetic operations with precision.'
     },
     {
         id: 2,
         name: 'Vue Checkout Form',
-        img: '@/images/15_vue_checkout_form.png',
+        // img: require('/images/15_vue_checkout_form.png'),
+        // img: '/images/15_vue_checkout_form.png',
+        img: 'https://raw.githubusercontent.com/ptk666/vue_portfolio/master/public/images/15_vue_checkout_form.png',
         link: 'https://ptk666.github.io/vue_checkout_form/',
         description: 'A Vue.js project focused on creating a seamless and user-friendly checkout form for online transactions. This project aims to enhance the user experience during the checkout process, making it easy and efficient.'
     }
