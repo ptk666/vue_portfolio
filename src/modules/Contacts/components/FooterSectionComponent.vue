@@ -4,7 +4,7 @@
             <p class="text-2xl text-center md:text-left md:text-5xl lg:text-6xl uppercase font-bold tracking-tighter">Bruce James Dela Cruz</p>
             <p class="text-2xl text-center md:text-left md:text-5xl lg:text-6xl uppercase font-bold tracking-tighter">Web Developer</p>
         </div>
-    </div>
+    </div> 
 </template>
 
 <script setup>
